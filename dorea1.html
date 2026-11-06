@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дорея Малфой и мальчик который бесит</title>
+<style>
+        /* Базовые стили и увеличенный на 50% шрифт (1.5rem) */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 1.5rem;
+            line-height: 1.6;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Темная тема по умолчанию */
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body a {
+            color: #bb86fc;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        body a:hover {
+            text-decoration: underline;
+        }
+
+        /* Стили для светлой темы */
+        body.light-theme {
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        body.light-theme a {
+            color: #0066cc;
+        }
+
+        /* Общий блок для названия и подзаголовка */
+        .title-block {
+        margin-bottom: 20px; /* Отступ снизу от всего блока до основного контента */
+        }
+
+        /* Подзаголовок строго сверху */
+        .subtitle {
+        display: block;        /* Переносим на отдельную строку */
+        font-size: 14px;
+        font-style: italic;    /* Тот самый курсив */
+        color: #666;
+        margin: 0 0 4px 0;     /* Небольшой отступ только снизу, до названия */
+        }
+
+        /* Главное название сразу под ним */
+        .main-title {
+        font-size: 28px;
+        font-weight: bold;
+        margin: 0;             /* Убираем дефолтные отступы браузера */
+        }
+
+        /* Стиль для недоступных глав */
+        .unavailable {
+            color: #888888;
+            font-style: italic;
+        }
+
+        /* Базовый класс для всех текстовых бейджей (общий вид) */
+        .badge {
+            display: inline-block;
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: bold;
+            font-family: sans-serif;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1;
+            margin-right: 12px;
+            vertical-align: middle;
+            user-select: none; /* Запрещает выделение бейджа как текста */
+        }
+
+        /* Зеленая галочка без фона для проверенных глав */
+        .badge-success {
+            display: inline-block;
+            color: #34c759; /* Яркий зеленый цвет */
+            font-size: 1.3rem; /* Чуть крупнее, чтобы совпадать по высоте с бейджами */
+            font-weight: bold;
+            line-height: 1;
+            margin-right: 12px;
+            width: 38px; /* Фиксированная ширина, чтобы текст глав стоял ровно в один ряд */
+            text-align: center;
+            vertical-align: middle;
+            user-select: none;
+        }
+
+        /* Красный бейдж для новинок */
+        .badge-new {
+            background-color: #ff3b30;
+        }
+
+        /* Синий бейдж для редактирования */
+        .badge-edit {
+            background-color: #007aff;
+        }
+
+
+        /* Кнопка переключения темы */
+        .theme-toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #333333;
+            color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            user-select: none;
+        }
+
+        body.light-theme .theme-toggle-btn {
+            background-color: #f0f0f0;
+            color: #333333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="theme-toggle-btn" id="themeToggle">☀️ Светлая тема</button>
+
+    <div class="title-block">
+        <span class="subtitle">черновое название</span>
+        <h1 class="main-title">Дорея Малфой и мальчик который <s>выжил</s> бесит</h1>
+    </div>
+
+    <ul>
+        <li>
+            <a href="#" target="_blank">
+                <span class="badge badge-edit" aria-hidden="true">Edit</span>
+                <span class="link-text">Глава 1. Рождение дочери.</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" target="_blank">
+                <span class="badge badge-new" aria-hidden="true">New</span>
+                <span class="link-text">Глава 2. Детство.</span>
+            </a>
+        </li>
+        <li>Глава 3. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 4. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 5. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 6. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 7. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 8. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 9. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 10. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 11. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 12. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 13. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 14. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 15. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 16. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 17. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 18. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 19. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 20. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 21. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 22. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 23. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 24. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Глава 25. &nbsp;<span class="unavailable">(не доступно)</span></li>
+        <li>Приложение 1. <span class="unavailable">(не доступно)</span></li>
+        <li>Приложение 2. <span class="unavailable">(не доступно)</span></li>
+    </ul>
+
+    <script>
+        const toggleBtn = document.getElementById('themeToggle');
+
+        // 1. Проверяем сохраненную тему при загрузке страницы
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'light') {
+            document.body.classList.add('light-theme');
+            toggleBtn.textContent = '🌙 Темная тема';
+        }
+
+        // 2. Обработчик клика с сохранением выбора в LocalStorage
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+
+            let theme = 'dark';
+            if (document.body.classList.contains('light-theme')) {
+                theme = 'light';
+                toggleBtn.textContent = '🌙 Темная тема';
+            } else {
+                toggleBtn.textContent = '☀️ Светлая тема';
+            }
+
+            localStorage.setItem('theme', theme);
+        });
+    </script>
+</body>
+</html>
