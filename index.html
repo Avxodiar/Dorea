@@ -14,16 +14,27 @@
 
     <!-- Левый блок с заглушкой 1080x1915 -->
     <aside class="sidebar-image">
-        <!-- Первый слайд грузится сразу -->
-        <img class="slide active" src="img/hbo_cover.jpeg" alt="hbo malfoid">
 
-        <!-- Остальные грузятся отложенно -->
-        <img class="slide" src="img/HV1-gWKXgAAT_OD.jpeg" alt="malfoid 1" loading="lazy">
-        <img class="slide" src="img/malfoid_871693130.jpeg" alt="malfoid 2" loading="lazy">
-        <img class="slide" src="img/malfoid_c5f937efa8e.jpeg" alt="malfoid 3" loading="lazy">
-        <img class="slide" src="img/malfoid_869664368.jpg" alt="malfoid 4" loading="lazy">
-        <img class="slide" src="img/malfoid_854812399.jpg" alt="malfoid 5" loading="lazy">
-        <img class="slide" src="img/malfoid_ea04ab98b9.jpeg" alt="malfoid 6" loading="lazy">
+        <!-- Набор слайдов для темной темы -->
+        <div class="slides-group" data-theme="dark">
+            <!-- Первый слайд грузится сразу -->
+            <img class="slide active" src="img/hbo_cover.jpeg" alt="hbo malfoid">
+            <img class="slide" src="img/HV1-gWKXgAAT_OD.jpeg" alt="malfoid 1" loading="lazy">
+            <img class="slide" src="img/malfoid_871693130.jpeg" alt="malfoid 2" loading="lazy">
+            <img class="slide" src="img/malfoid_c5f937efa8e.jpeg" alt="malfoid 3" loading="lazy">
+            <img class="slide" src="img/malfoid_869664368.jpg" alt="malfoid 4" loading="lazy">
+            <img class="slide" src="img/malfoid_854812399.jpg" alt="malfoid 5" loading="lazy">
+            <img class="slide" src="img/malfoid_ea04ab98b9.jpeg" alt="malfoid 6" loading="lazy">
+        </div>
+
+        <!-- Набор слайдов для светлой темы -->
+        <div class="slides-group" data-theme="light">
+            <img class="slide active" src="img/light_847587354.jpg" alt="malfoid light 1" loading="lazy">
+            <img class="slide" src="img/light_847939088.jpg" alt="malfoid light 2" loading="lazy">
+
+            <img class="slide" src="img/light_846727942.jpg" alt="malfoid light 4" loading="lazy">
+            <img class="slide" src="img/light_848186775_2.jpg" alt="malfoid light 3" loading="lazy">
+        </div>
 
         <button class="slider-btn prev" aria-label="Предыдущий слайд">&#10094;</button>
         <button class="slider-btn next" aria-label="Следующий слайд">&#10095;</button>
