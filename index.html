@@ -8,62 +8,84 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <link rel="stylesheet" href="dorea.css">
+    <link rel="stylesheet" href="slider.css">
 </head>
 <body>
 
-    <button class="theme-toggle-btn" id="themeToggle">☀️ Светлая тема</button>
+    <!-- Левый блок с заглушкой 1080x1915 -->
+    <aside class="sidebar-image">
+        <!-- Первый слайд грузится сразу -->
+        <img class="slide active" src="img/hbo_cover.jpeg" alt="hbo malfoid">
 
-    <div class="title-block">
-        <span class="subtitle">черновое название</span>
-        <h1 class="main-title">Леди Малфой и мальчик который <s>выжил</s> бесит</h1>
-    </div>
+        <!-- Остальные грузятся отложенно -->
+        <img class="slide" src="img/HV1-gWKXgAAT_OD.jpeg" alt="malfoid 1" loading="lazy">
+        <img class="slide" src="img/malfoid_871693130.jpeg" alt="malfoid 2" loading="lazy">
+        <img class="slide" src="img/malfoid_c5f937efa8e.jpeg" alt="malfoid 3" loading="lazy">
+        <img class="slide" src="img/malfoid_869664368.jpg" alt="malfoid 4" loading="lazy">
+        <img class="slide" src="img/malfoid_854812399.jpg" alt="malfoid 5" loading="lazy">
+        <img class="slide" src="img/malfoid_ea04ab98b9.jpeg" alt="malfoid 6" loading="lazy">
 
-    <ul>
-        <li class="badge badge-success">
-            <a href="https://docs.google.com/document/d/1EpX7BrGcCAu129Fl5HPP5P-n3GLde-o0KmlR6NzNwUo/edit?tab=t.0" target="_blank">
-                Глава 1. Рождение дочери.
-            </a>
-        </li>
-        <li class="badge badge-success">
-            <a href="https://docs.google.com/document/d/18Igj13DyjBg6qEdEWitNv85faZ3vIrMv4YstDweBxhY/edit?tab=t.0" target="_blank">
-                Глава 2. Детство.
-            </a>
-        </li>
-        <li class="badge badge-edit">
-            <a href="https://docs.google.com/document/d/19BGU3Rfs7v81mgZQmGSxERE_RQvhjQoc9YiM8xcVPBY/edit?tab=t.0" target="_blank">
-                Глава 3. Подготовка к учебе. Часть 1.
-            </a>
-        </li>
-        <li class="badge badge-new">
-            <a href="" target="_blank">
-                Глава 4. &nbsp;<span class="unavailable">Подготовка к учебе. Часть 2.</span>
-            </a>
-        </li>
-        <li>Глава 5. &nbsp;<span class="unavailable">Хогвартс-экспресс.</span></li>
-        <li>Глава 6. &nbsp;<span class="unavailable">Распределение.</span></li>
-        <li>Глава 7. &nbsp;<span class="unavailable">Букля.</span></li>
-        <li>Глава 8. &nbsp;<span class="unavailable">Первый урок зельеварения.</span></li>
-        <li>Глава 9. &nbsp;<span class="unavailable">Первый урок полётов.</span></li>
-        <li>Глава 10. &nbsp;<span class="unavailable">Осенние неудачи</span></li>
-        <li>Глава 11. &nbsp;<span class="unavailable">(н/д)</span></li>
-        <li><span class="unavailable">. . .</span></li>
-        <li class="badge badge-new">
-            <a href="https://docs.google.com/document/d/1KgRpQJ7se0QM1RWVLo40AW15v9-F9AREgPDNF2bk3e4/edit?tab=t.0" target="_blank">
-                Приложение 1. Подбор имени по созвездиям.
-            </a>
-        </li>
-        <li class="badge badge-new">
-            <a href="https://docs.google.com/document/d/1pp0VuyVWmX-fFVZSnoyyknP1E8t2HZFQ4-jyJkIJVr8/edit?tab=t.0" target="_blank">
-                Приложение 2. Подбор "звездного" имени.
-            </a>
-        </li>
+        <button class="slider-btn prev" aria-label="Предыдущий слайд">&#10094;</button>
+        <button class="slider-btn next" aria-label="Следующий слайд">&#10095;</button>
+        <div class="slider-dots"></div>
+    </aside>
 
-        <li class="badge badge-new">
-            <a href="https://docs.google.com/document/d/1lTIW3Wji8xVLaU4lRH2PbTxD7NMFOOiiW6gN4VNjCeY/edit?tab=t.0" target="_blank">
-                Приложение 3. Авторская встреча в Малфой-маноре.
-            </a>
-        </li>
-    </ul>
+    <!-- Весь ваш остальной контент -->
+    <main class="main-content">
+        <button class="theme-toggle-btn" id="themeToggle">☀️ Светлая тема</button>
+
+        <div class="title-block">
+            <span class="subtitle">черновое название</span>
+            <h1 class="main-title">Леди Малфой и мальчик который <s>выжил</s> бесит</h1>
+        </div>
+
+        <ul>
+            <li class="badge badge-success">
+                <a href="https://docs.google.com/document/d/1EpX7BrGcCAu129Fl5HPP5P-n3GLde-o0KmlR6NzNwUo/edit?tab=t.0" target="_blank">
+                    Глава 1. Рождение дочери.
+                </a>
+            </li>
+            <li class="badge badge-success">
+                <a href="https://docs.google.com/document/d/18Igj13DyjBg6qEdEWitNv85faZ3vIrMv4YstDweBxhY/edit?tab=t.0" target="_blank">
+                    Глава 2. Детство.
+                </a>
+            </li>
+            <li class="badge badge-edit">
+                <a href="https://docs.google.com/document/d/19BGU3Rfs7v81mgZQmGSxERE_RQvhjQoc9YiM8xcVPBY/edit?tab=t.0" target="_blank">
+                    Глава 3. Подготовка к учебе. Часть 1.
+                </a>
+            </li>
+            <li class="badge badge-new">
+                <a href="https://docs.google.com/document/d/1zm5xtXvmKZPR50zM7FlYgZGcUtl6Qv5-z8oXGdGFzic/edit?tab=t.0" target="_blank">
+                    Глава 4. Подготовка к учебе. Часть 2.
+                </a>
+            </li>
+            <li>Глава 5. &nbsp;<span class="unavailable">Хогвартс-экспресс.</span></li>
+            <li>Глава 6. &nbsp;<span class="unavailable">Распределение.</span></li>
+            <li>Глава 7. &nbsp;<span class="unavailable">Букля.</span></li>
+            <li>Глава 8. &nbsp;<span class="unavailable">Первый урок зельеварения.</span></li>
+            <li>Глава 9. &nbsp;<span class="unavailable">Первый урок полётов.</span></li>
+            <li>Глава 10. &nbsp;<span class="unavailable">Осенние неудачи</span></li>
+            <li>Глава 11. &nbsp;<span class="unavailable">(н/д)</span></li>
+            <li><span class="unavailable">. . .</span></li>
+            <li class="badge badge-new">
+                <a href="https://docs.google.com/document/d/1KgRpQJ7se0QM1RWVLo40AW15v9-F9AREgPDNF2bk3e4/edit?tab=t.0" target="_blank">
+                    Приложение 1. Подбор имени по созвездиям.
+                </a>
+            </li>
+            <li class="badge badge-new">
+                <a href="https://docs.google.com/document/d/1pp0VuyVWmX-fFVZSnoyyknP1E8t2HZFQ4-jyJkIJVr8/edit?tab=t.0" target="_blank">
+                    Приложение 2. Подбор "звездного" имени.
+                </a>
+            </li>
+
+            <li class="badge badge-new">
+                <a href="https://docs.google.com/document/d/1lTIW3Wji8xVLaU4lRH2PbTxD7NMFOOiiW6gN4VNjCeY/edit?tab=t.0" target="_blank">
+                    Приложение 3. Авторская встреча в Малфой-маноре.
+                </a>
+            </li>
+        </ul>
+    </main>
 
     <script src="dorea.js"></script>
 </body>
