@@ -13,6 +13,24 @@ body {
     color: #e0e0e0;
 }
 
+body a {
+    color: #bb86fc;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+body,
+.main-content,
+.sidebar-image {
+    transition: background-color 1.5s ease-in-out, color 1.5s ease-in-out;
+}
+
+body a:hover {
+    text-decoration: underline;
+}
+
+
 /* Левая колонка для изображения */
 .sidebar-image {
     position: sticky;
@@ -43,12 +61,44 @@ body {
 
     /* Поднимаем слой выше main-content, чтобы тень ложилась поверх текста при стыке */
     z-index: 2;
+
+    /* Плавная смена фона синхронно с телом страницы */
+    transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
+}
+
+/* Контейнер группы растягиваем на весь блок */
+.slides-group {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
+    pointer-events: none;
+}
+
+/* В темной теме (по умолчанию) показываем только dark */
+body:not(.light-theme) .slides-group[data-theme="dark"] {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* В светлой теме показываем только light */
+body.light-theme .slides-group[data-theme="light"] {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Меняем цвет подложки на белый при включении светлой темы */
+body.light-theme .sidebar-image {
+    background-color: #ffffff;
 }
 
 /* Более мягкая тень для светлой темы */
 body.light-theme .sidebar-image {
-    border-right: 3px solid #073a13;
-    box-shadow: 7px -1px 20px 0px #107e42;
+    border-right: none;
+    box-shadow: none;
 }
 
 .sidebar-image img {
@@ -69,17 +119,6 @@ body.light-theme .sidebar-image {
     padding: 40px 20px;
     max-width: 800px;
     margin: 0 50px;
-}
-
-body a {
-    color: #bb86fc;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-}
-
-body a:hover {
-    text-decoration: underline;
 }
 
 /* Стили для светлой темы */
