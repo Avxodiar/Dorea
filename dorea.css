@@ -1,18 +1,74 @@
-/* Базовые стили и увеличенный на 50% шрифт (1.5rem) */
+/* Базовые стили */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 1.5rem;
     line-height: 1.6;
-    padding: 40px 20px;
-    max-width: 800px;
-    margin: 0 auto;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    min-width: 1024px;
     transition: background-color 0.3s, color 0.3s;
-}
-
-/* Темная тема по умолчанию */
-body {
     background-color: #121212;
     color: #e0e0e0;
+}
+
+/* Левая колонка для изображения */
+.sidebar-image {
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    /* Высота всегда равна высоте окна, но не более 100% высоты картинки (1536px) */
+    height: min(100vh, 1536px);
+
+    /* Базовая ширина — половина страницы (не меньше 512px) */
+    width: max(50vw, 512px);
+
+    /* Защита от обрезки снизу: ширина контейнера никогда не превышает полную ширину картинки при текущей высоте */
+    max-width: min(1024px, calc(min(100vh, 1536px) * 2/3));
+
+    /* Защита от обрезки слева: видимая часть не меньше 60% от ширины картинки (обрезка <= 40%) */
+    min-width: calc(min(100vh, 1024px) * 0.3384);
+
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+
+    /* Защита от просвечивания белого фона при кроссфейде */
+    background-color: #121212;
+    border-right: 3px solid #073a13;
+    box-shadow: 5px 0px 20px 0px #5a5a5a;
+
+    /* Поднимаем слой выше main-content, чтобы тень ложилась поверх текста при стыке */
+    z-index: 2;
+}
+
+/* Более мягкая тень для светлой темы */
+body.light-theme .sidebar-image {
+    border-right: 3px solid #073a13;
+    box-shadow: 7px -1px 20px 0px #107e42;
+}
+
+.sidebar-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 1024px;
+    max-height: 1536px;
+
+    /* Заполняем всю высоту контейнера без искажения и обрезаем лишнее СЛЕВА */
+    object-fit: cover;
+    object-position: right top;
+}
+
+/* Правая колонка с основным текстом (бывшие отступы body перенесены сюда) */
+.main-content {
+    flex: 1;
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 50px;
 }
 
 body a {
@@ -38,23 +94,21 @@ body.light-theme a {
 
 /* Общий блок для названия и подзаголовка */
 .title-block {
-margin-bottom: 20px; /* Отступ снизу от всего блока до основного контента */
+    margin-bottom: 20px;
 }
 
-/* Подзаголовок строго сверху */
 .subtitle {
-display: block;        /* Переносим на отдельную строку */
-font-size: 14px;
-font-style: italic;    /* Тот самый курсив */
-color: #666;
-margin: 0 0 4px 0;     /* Небольшой отступ только снизу, до названия */
+    display: block;
+    font-size: 14px;
+    font-style: italic;
+    color: #666;
+    margin: 0 0 4px 0;
 }
 
-/* Главное название сразу под ним */
 .main-title {
-font-size: 28px;
-font-weight: bold;
-margin: 0;             /* Убираем дефолтные отступы браузера */
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
 }
 
 /* Стиль для недоступных глав */
@@ -63,40 +117,37 @@ margin: 0;             /* Убираем дефолтные отступы бр�
     font-style: italic;
 }
 
-/* Общие правила для отображения шрифтовых иконок */
+/* Иконки */
 .badge::before {
-    font-family: "Font Awesome 6 Free"; /* Подключаем шрифт */
-    font-weight: 900;                  /* Обязательно для корректного отображения иконок */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
     display: inline-block;
     font-style: normal;
     font-variant: normal;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
-    margin-right: 8px;                 /* Отступ от иконки до текста главы */
-    font-size: 14px;                   /* Размер иконки */
+    margin-right: 8px;
+    font-size: 14px;
 }
 
 /* Иконка Готово (Success) — галочка зеленого цвета */
 .badge-success::before {
-    content: "\f00c";                  /* Код галочки */
+    content: "\f00c";
     color: #28a745;
 }
 
 /* Иконка Редактирования (Edit) — карандаш желтого цвета */
 .badge-edit::before {
-    content: "\f303";                  /* Код карандаша */
+    content: "\f303";
     color: #ffc107;
 }
 
-/* Иконка Новое (New) — плюс или звезда синего цвета */
+/* Иконка Новое (New) */
 .badge-new::before {
-    content: "\f067";                  /* Код знака плюс */
+    content: "\f067";
     color: #007bff;
-}
-
-.badge-new::before {
-    width: 38px;  /* Ширина графической плашки */
-    height: 16px; /* Высота графической плашки */
+    width: 38px;
+    height: 16px;
     background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzOCAxNiI+PHJlY3Qgd2lkdGg9IjM4IiBoZWlnaHQ9IjE2IiByeD0iNCIgZmlsbD0iIzAwN2JmZiIvPjx0ZXh0IHg9IjE5IiB5PSIxMS45IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iOSIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiNmZmZmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk5FVzwvdGV4dD48L3N2Zz4=");
 }
 
